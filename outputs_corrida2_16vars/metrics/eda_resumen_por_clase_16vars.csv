@@ -1,0 +1,17 @@
+﻿variable,unidad,media_no_clasifico,media_clasifico,mediana_no_clasifico,mediana_clasifico,diferencia_medias_si_menos_no,d_cohen,n_no_clasifico,n_clasifico,abs_d_cohen
+off_eFG%,proporción (0-1),-0.0097,0.0084,-0.0099,0.008,0.0181,1.191,373,432,1.191
+Age,años (promedio ponderado),-0.8269,0.714,-0.9241,0.6882,1.5409,1.0135,373,432,1.0135
+3P%,proporción (0-1),-0.0068,0.0058,-0.0062,0.0059,0.0126,0.7466,373,432,0.7466
+def_DRB%,% de rebotes defensivos,-0.5561,0.4801,-0.4267,0.4933,1.0362,0.6697,373,432,0.6697
+AST,asistencias por partido,-0.4824,0.4165,-0.6069,0.2586,0.8989,0.5175,373,432,0.5175
+TRB,rebotes por partido,-0.3893,0.3361,-0.45,0.25,0.7254,0.4321,373,432,0.4321
+off_FT/FGA,razón FT/FGA,-0.0043,0.0037,-0.0055,0.0012,0.0079,0.3799,373,432,0.3799
+3PAr,proporción de tiros de 3,-0.0083,0.0072,-0.0091,0.0059,0.0156,0.3761,373,432,0.3761
+BLK,tapones por partido,-0.1354,0.1169,-0.1633,0.1167,0.2523,0.3319,373,432,0.3319
+def_TOV%,"% de posesiones, mayor es mejor",-0.1586,0.137,-0.1867,0.1117,0.2956,0.2959,373,432,0.2959
+FT%,proporción (0-1),-0.0041,0.0036,-0.0024,0.0047,0.0077,0.2808,373,432,0.2808
+off_ORB%,% de rebotes ofensivos,0.0145,-0.0125,0.0966,-0.09,-0.027,-0.0115,373,432,0.0115
+Pace,posesiones por 48 min,0.288,-0.2487,0.1733,-0.5233,-0.5367,-0.2496,373,432,0.2496
+def_FT/FGA,"razón FT/FGA, menor es mejor",0.0045,-0.0039,0.0033,-0.0042,-0.0084,-0.3904,373,432,0.3904
+off_TOV%,% de posesiones,0.2751,-0.2375,0.2833,-0.2367,-0.5126,-0.5731,373,432,0.5731
+def_eFG%,"proporción (0-1), menor es mejor",0.0094,-0.0081,0.01,-0.0077,-0.0176,-1.4347,373,432,1.4347

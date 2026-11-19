@@ -1,0 +1,49 @@
+2026-11-18 12:58:15 | INFO | ======================================================================
+2026-11-18 12:58:15 | INFO | FASE III - EDA | corrida actual de 16 predictores
+2026-11-18 12:58:15 | INFO | Python 3.15.2 | pandas 3.1.1 | numpy 2.5.5 | matplotlib 3.11.2
+2026-11-18 12:58:15 | INFO | scikit-learn 1.9.1 (no se usa en esta fase)
+2026-11-18 12:58:15 | INFO | Entrada: data\processed\nba_teams_clean.csv
+2026-11-18 12:58:15 | INFO | Salida : outputs_corrida2_16vars
+2026-11-18 12:58:15 | INFO | Dataset: 805 filas x 52 columnas | 27 temporadas (2000-2026)
+2026-11-18 12:58:15 | INFO | Predictores (16): off_eFG%, off_TOV%, off_ORB%, off_FT/FGA, def_eFG%, def_TOV%, def_DRB%, def_FT/FGA, Age, Pace, 3PAr, 3P%, FT%, AST, BLK, TRB
+2026-11-18 12:58:15 | INFO | Nulos en predictores: 0 | Infinitos: 0
+2026-11-18 12:58:15 | INFO | Objetivo: 0=373 (46.3%) | 1=432 (53.7%) | nulos=0
+2026-11-18 12:58:15 | INFO | Generando tablas descriptivas y de calidad...
+2026-11-18 12:58:15 | INFO | Tabla guardada: outputs_corrida2_16vars\metrics\eda_calidad_datos_16vars.csv
+2026-11-18 12:58:15 | INFO | Tabla guardada: outputs_corrida2_16vars\metrics\eda_descriptivas_absolutas_16vars.csv
+2026-11-18 12:58:15 | INFO | Tabla guardada: outputs_corrida2_16vars\metrics\eda_descriptivas_relativas_16vars.csv
+2026-11-18 12:58:15 | INFO | Tabla guardada: outputs_corrida2_16vars\metrics\eda_balance_objetivo_16vars.csv
+2026-11-18 12:58:15 | INFO | Tabla guardada: outputs_corrida2_16vars\metrics\eda_balance_por_temporada_16vars.csv
+2026-11-18 12:58:15 | INFO | Tabla guardada: outputs_corrida2_16vars\metrics\eda_resumen_por_clase_16vars.csv
+2026-11-18 12:58:15 | INFO | Tabla guardada: outputs_corrida2_16vars\metrics\eda_correlacion_objetivo_16vars.csv
+2026-11-18 12:58:15 | INFO | Tabla guardada: outputs_corrida2_16vars\metrics\eda_matriz_correlacion_predictores_16vars.csv
+2026-11-18 12:58:15 | INFO | Tabla guardada: outputs_corrida2_16vars\metrics\eda_pares_correlacionados_16vars.csv
+2026-11-18 12:58:15 | INFO | Tabla guardada: outputs_corrida2_16vars\metrics\eda_atipicos_16vars.csv
+2026-11-18 12:58:15 | INFO | Tabla guardada: outputs_corrida2_16vars\metrics\eda_tasa_playoffs_por_quintil_16vars.csv
+2026-11-18 12:58:15 | INFO | Tabla guardada: outputs_corrida2_16vars\metrics\eda_cuadrantes_efg_16vars.csv
+2026-11-18 12:58:15 | INFO | Tabla guardada: outputs_corrida2_16vars\metrics\eda_por_temporada_16vars.csv
+2026-11-18 12:58:15 | INFO | Generando figuras...
+2026-11-18 12:58:15 | INFO | Figura guardada: outputs_corrida2_16vars\figures\01_balance_clases_16vars.png
+2026-11-18 12:58:16 | INFO | Figura guardada: outputs_corrida2_16vars\figures\02_evolucion_playoffs_por_temporada_16vars.png
+2026-11-18 12:58:16 | INFO | Figura guardada: outputs_corrida2_16vars\figures\03_deriva_por_epoca_16vars.png
+2026-11-18 12:58:19 | INFO | Figura guardada: outputs_corrida2_16vars\figures\04_histogramas_16vars.png
+2026-11-18 12:58:20 | INFO | Figura guardada: outputs_corrida2_16vars\figures\10_boxplots_cuatro_factores_16vars.png
+2026-11-18 12:58:21 | INFO | Figura guardada: outputs_corrida2_16vars\figures\11_boxplots_otras_variables_16vars.png
+2026-11-18 12:58:22 | INFO | Figura guardada: outputs_corrida2_16vars\figures\05_correlacion_con_objetivo_16vars.png
+2026-11-18 12:58:22 | INFO | Figura guardada: outputs_corrida2_16vars\figures\06_correlacion_entre_predictores_16vars.png
+2026-11-18 12:58:23 | INFO | Figura guardada: outputs_corrida2_16vars\figures\07_dispersion_efg_ataque_defensa_16vars.png
+2026-11-18 12:58:24 | INFO | Figura guardada: outputs_corrida2_16vars\figures\08_tasa_playoffs_por_quintil_16vars.png
+2026-11-18 12:58:25 | INFO | Figura guardada: outputs_corrida2_16vars\figures\09_atipicos_y_sesgo_16vars.png
+2026-11-18 12:58:25 | INFO | Resumen guardado: outputs_corrida2_16vars\metrics\eda_resumen_16vars.txt
+2026-11-18 12:58:25 | INFO | Metadatos guardados: outputs_corrida2_16vars\metrics\eda_resumen_ejecucion_16vars.json
+2026-11-18 12:58:25 | INFO | ----------------------------------------------------------------------
+2026-11-18 12:58:25 | INFO | Correlación con el objetivo (Pearson, top 5):
+2026-11-18 12:58:25 | INFO |   off_eFG%     +0.511
+2026-11-18 12:58:25 | INFO |   Age          +0.452
+2026-11-18 12:58:25 | INFO |   3P%          +0.349
+2026-11-18 12:58:25 | INFO |   def_DRB%     +0.317
+2026-11-18 12:58:25 | INFO |   AST          +0.250
+2026-11-18 12:58:25 | INFO | Pares con |r| >= 0,70: 1
+2026-11-18 12:58:25 | INFO | Atípicos máximos: 3P% (15, 1.9%)
+2026-11-18 12:58:25 | INFO | Estado: OK | figuras=11 | tablas=13
+2026-11-18 12:58:25 | INFO | ======================================================================

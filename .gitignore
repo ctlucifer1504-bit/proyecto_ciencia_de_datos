@@ -1,0 +1,37 @@
+# Entorno virtual
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------------------
+# DATOS: no se publican.
+# Los HTML, fragmentos, CSV crudos y el dataset procesado son de Sports Reference
+# y se regeneran con `python scraping.py` y `python limpieza.py`.
+# Solo se versiona data/README.md con las instrucciones.
+# ---------------------------------------------------------------------------
+data/*
+!data/README.md
+
+# Salidas fila a fila (equipo-temporada): no se publican.
+outputs_corrida2_16vars_fase4/metrics/modelado_predicciones_test_*_16vars.csv
+
+# PDF borrador: se genera localmente y no se publica.
+docs/INFORME_FINAL_BORRADOR.pdf
+
+# Sistema operativo / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Salidas temporales
+*.tmp
+~$*

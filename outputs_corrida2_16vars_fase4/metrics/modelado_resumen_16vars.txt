@@ -1,0 +1,42 @@
+FASE IV - MODELADO - 16 PREDICTORES
+============================================================
+Fecha/hora: 2026-11-18T13:47:11
+Entrada: data\processed\nba_teams_clean.csv
+SHA256: c04704d9ecdd511b24bd81b1aef73250082e02bd1f63a501eed900f1f9ea3ea9
+Filas: 805 | Predictores: 16
+Protocolo principal: temporal (train <= 2019, test > 2019)
+Protocolo secundario: estratificado 80/20
+
+[temporal] modelo final: LogisticRegression
+  parametros: {'clf__C': 0.1}
+  umbral: 0.46
+  CV F1: 0.912 +- 0.009
+  CV accuracy: 0.904 +- 0.009
+  CV ROC-AUC: 0.970 +- 0.007
+  TEST base (umbral 0.50): F1=0.879 | accuracy=0.862 | ROC-AUC=0.946
+  TEST optimizado (umbral 0.50): F1=0.866 | accuracy=0.848 | ROC-AUC=0.942 | PR-AUC=0.947 | Brier=0.097
+  TEST optimizado (umbral 0.46): F1=0.880 | accuracy=0.862 | ROC-AUC=0.942
+
+[estratificado] modelo final: LogisticRegression
+  parametros: {'clf__C': 1}
+  umbral: 0.57
+  CV F1: 0.904 +- 0.020
+  CV accuracy: 0.896 +- 0.023
+  CV ROC-AUC: 0.971 +- 0.010
+  TEST base (umbral 0.50): F1=0.882 | accuracy=0.876 | ROC-AUC=0.949
+  TEST optimizado (umbral 0.50): F1=0.882 | accuracy=0.876 | ROC-AUC=0.949 | PR-AUC=0.952 | Brier=0.097
+  TEST optimizado (umbral 0.57): F1=0.841 | accuracy=0.839 | ROC-AUC=0.949
+
+Sensibilidad (protocolo temporal, CV):
+  principal_16_rel: F1=0.912 +- 0.009
+  sin_Age: F1=0.911 +- 0.010
+  sin_3P%: F1=0.910 +- 0.010
+  sin_Age_y_3P%: F1=0.912 +- 0.007
+  sin_TRB: F1=0.909 +- 0.009
+  sin_VIF_mayor_10: F1=0.893 +- 0.007
+  absolutas_16: F1=0.908 +- 0.015
+
+Nota: la mejora de GridSearchCV en CV fue pequena (dentro de 1 desviacion).
+En test, el modelo optimizado no supero al modelo base; se reporta sin forzar una mejora.
+Limitaciones: asociacion no causal; test usado una vez por protocolo;
+el protocolo estratificado es secundario y no se usa para elegir el modelo final.

@@ -1,0 +1,22 @@
+{
+  "modelo_final": "LogisticRegression",
+  "mejores_parametros": {
+    "clf__C": 1000
+  },
+  "n_train": 644,
+  "n_test": 161,
+  "n_folds": 5,
+  "random_state": 42,
+  "accuracy_linea_base_cv": 0.5372698643410853,
+  "robustez_temporal": {
+    "accuracy": 0.8571428571428571,
+    "precision": 0.8253968253968254,
+    "recall": 0.9285714285714286,
+    "f1": 0.8739495798319328,
+    "roc_auc": 0.9431486880466473
+  },
+  "versiones": {
+    "sklearn": "1.9.1",
+    "pandas": "3.1.1"
+  }
+}

@@ -1,0 +1,75 @@
+﻿FASE III - EDA - CORRIDA ACTUAL (16 PREDICTORES)
+================================================================
+Fecha/hora: 2026-11-18T13:02:44
+Entrada: data\processed\nba_teams_clean.csv
+SHA256 entrada: c04704d9ecdd511b24bd81b1aef73250082e02bd1f63a501eed900f1f9ea3ea9
+Filas: 805 | Columnas originales: 52 | Columnas con relativas: 68 | Temporadas: 27 (2000-2026)
+Predictores: 16
+  off_eFG%, off_TOV%, off_ORB%, off_FT/FGA, def_eFG%, def_TOV%, def_DRB%, def_FT/FGA, Age, Pace, 3PAr, 3P%, FT%, AST, BLK, TRB
+
+1. VARIABLE OBJETIVO
+   No clasificó (0): 373 (46.3%)
+   Clasificó (1): 432 (53.7%)
+   16 clasificados por temporada; 29 equipos hasta 2004 y 30 desde 2005.
+
+2. CALIDAD DE LOS PREDICTORES
+   Nulos en los 16 predictores: 0
+   Infinitos en los 16 predictores: 0
+   Duplicados (season, Team): 0
+   Nulos en variables de contexto (excluidas): {'Attend.': 4, 'Attend./G': 4}
+   No se imputa ni elimina ninguna observación en esta fase.
+
+   Partidos por temporada (G; no es predictor):
+     2012: 66-66 partidos (30 equipos)
+     2013: 81-82 partidos (2 equipos)
+     2020: 64-75 partidos (30 equipos)
+     2021: 72-72 partidos (30 equipos)
+   Por eso el EDA usa tasas y promedios por partido, no totales.
+
+3. CORRELACIÓN CON EL OBJETIVO (predictores relativos)
+   Más positivas:
+     off_eFG%     r=+0.511 | rho=+0.522
+     Age          r=+0.452 | rho=+0.455
+     3P%          r=+0.349 | rho=+0.358
+     def_DRB%     r=+0.317 | rho=+0.312
+     AST          r=+0.250 | rho=+0.241
+   Más negativas:
+     def_eFG%     r=-0.582 | rho=-0.594
+     off_TOV%     r=-0.275 | rho=-0.277
+     def_FT/FGA   r=-0.191 | rho=-0.183
+     Pace         r=-0.124 | rho=-0.129
+     off_ORB%     r=-0.006 | rho=-0.009
+
+4. REDUNDANCIA ENTRE PREDICTORES (|r| >= 0,70)
+   off_eFG%     - 3P%          r=+0.709
+
+5. DIFERENCIAS ENTRE CLASES (d de Cohen, valores relativos)
+   Mayores diferencias absolutas:
+     def_eFG%     d=-1.435 | media no=+0.009 | media sí=-0.008
+     off_eFG%     d=+1.191 | media no=-0.010 | media sí=+0.008
+     Age          d=+1.014 | media no=-0.827 | media sí=+0.714
+     3P%          d=+0.747 | media no=-0.007 | media sí=+0.006
+     def_DRB%     d=+0.670 | media no=-0.556 | media sí=+0.480
+
+6. ATÍPICOS (1,5 × IQR sobre valores relativos)
+   3P%           15 (1.9%)
+   off_FT/FGA    14 (1.7%)
+   3PAr          13 (1.6%)
+   def_FT/FGA    12 (1.5%)
+   TRB           11 (1.4%)
+   No se eliminan: pueden ser equipos legítimamente extremos.
+
+7. DERIVA DE ÉPOCA (promedio de liga, primera y última temporada)
+   3PAr          0.167 ->    0.415
+   Pace         93.090 ->   99.353
+   ORtg        104.052 ->  115.780
+   off_eFG%      0.478 ->    0.546
+   def_eFG%      0.478 ->    0.546
+   Age          27.786 ->   26.097
+
+8. ARCHIVOS
+   Figuras: outputs_corrida2_16vars\figures
+   Tablas : outputs_corrida2_16vars\metrics
+   Log    : outputs_corrida2_16vars\logs
+
+Limitaciones: asociación no es causalidad; una sola fuente; cambios de formato de playoffs (play-in desde 2021); temporadas con menos de 82 partidos (ver tabla de partidos por temporada); variables relativas calculadas con el promedio de la temporada (incluye equipos de test).

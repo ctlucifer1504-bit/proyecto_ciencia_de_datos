@@ -1,0 +1,5 @@
+﻿cuadrante,n,clasificados,tasa,tasa_pct
+Ataque > media; defensa mejor,239,216,0.9038,90.3766
+Ataque > media; defensa peor,156,87,0.5577,55.7692
+Ataque <= media; defensa mejor,153,97,0.634,63.3987
+Ataque <= media; defensa peor,257,32,0.1245,12.4514

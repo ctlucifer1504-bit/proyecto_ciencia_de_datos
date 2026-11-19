@@ -1,0 +1,8 @@
+              precision    recall  f1-score   support
+
+No clasifico      0.926     0.765     0.838        98
+   Clasifico      0.822     0.946     0.880       112
+
+    accuracy                          0.862       210
+   macro avg      0.874     0.856     0.859       210
+weighted avg      0.870     0.862     0.860       210
