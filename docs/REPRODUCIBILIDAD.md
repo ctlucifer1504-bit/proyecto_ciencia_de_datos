@@ -105,9 +105,17 @@ figuras y métricas ya registradas. No recalcula nada.
 & .\.venv\Scripts\python.exe tools\build_slides.py
 ```
 
-Salida: `docs/PRESENTACION_VIDEO.pdf`, 18 páginas horizontales de 16:9 (960 × 540 pt):
-15 para narrar y 3 de anexo con evidencias. El texto que se dice en cada diapositiva
-está en `docs/GUION_PRESENTACION_VIDEO.md`.
+Salida: `docs/PRESENTACION_VIDEO.pdf`, 13 páginas horizontales de 16:9 (960 × 540 pt):
+11 para narrar y 2 de anexo con evidencias.
+
+El guion que se dice en cada diapositiva es un PDF aparte:
+
+```powershell
+& .\.venv\Scripts\python.exe tools\build_guion.py
+```
+
+Salida: `docs/GUION_PRESENTACION_VIDEO.pdf`, 7 páginas en A4 a una columna, con el mapa
+de tiempos, la asignación Mauricio/Santiago y el texto literal por diapositiva.
 
 ## Advertencia sobre el scraping
 

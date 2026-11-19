@@ -1,8 +1,12 @@
-# Guion del video de sustentación
+# Notas de apoyo para la grabación
 
-> **REPARTO A/B: se asigna el mismo día de la grabación.** Cada bloque indica «Integrante A»
-> o «Integrante B»; el equipo decide quién es quién antes de encender la cámara y no cambia
-> a mitad de grabación. Duración objetivo: **13–14 minutos** (máximo permitido: 15).
+> **El guion oficial es `docs/GUION_PRESENTACION_VIDEO.pdf`**: trae los tiempos, el texto
+> literal por diapositiva y a quién corresponde cada una.
+> Este documento conserva el detalle de apoyo: qué archivo mostrar en cada fase y frases
+> de respaldo por si el docente pregunta.
+>
+> **Reparto vigente:** Mauricio, diapositivas 1–5 (0:00–4:45); Santiago, diapositivas 6–10
+> (4:45–9:05); el cierre lo hacen ambos (9:05–10:00). Duración total: **10:00**.
 > Requisito del curso: cámara encendida al inicio, todos los integrantes se presentan y
 > explican activamente una sección técnica. Publicar en YouTube como **público** o
 > **no listado** (nunca «privado»: el docente no podría verlo).
@@ -11,16 +15,14 @@
 
 ## Reparto
 
-| Bloque | Minutos | Quién |
-|---|---:|---|
-| 1. Presentación y problema | 0:00–1:30 | Integrante A |
-| 2. Fuente y ética | 1:30–2:30 | Integrante A |
-| 3. Fase I: scraping | 2:30–4:30 | Integrante A |
-| 4. Fase II: limpieza | 4:30–6:00 | Integrante A |
-| 5. Fase III: EDA | 6:00–8:00 | Integrante B |
-| 6. Fase IV: modelado | 8:00–11:30 | Integrante B |
-| 7. Resultados y límites | 11:30–13:00 | Integrante B |
-| 8. Cierre y preguntas | 13:00–14:00 | Ambos |
+| Quién | Diapositivas | Minutos |
+|---|---|---:|
+| Mauricio | 1–5 | 0:00–4:45 |
+| Santiago | 6–10 | 4:45–9:05 |
+| Ambos | 11 (cierre) | 9:05–10:00 |
+
+Las secciones numeradas de abajo son el **detalle de apoyo**: las secciones 3 y 4 se
+condensan en la diapositiva 4, y las secciones 6 a 8, en las diapositivas 6 a 11.
 
 **Antes de grabar:** probar pantalla, micrófono, foco y que las figuras abran. Tener el
 proyecto abierto en VS Code y una terminal en la raíz.
@@ -45,7 +47,7 @@ proyecto abierto en VS Code y una terminal en la raíz.
 - 1080p, micrófono probado y cursor lento; hacer zoom cuando se lea una tabla.
 - No mostrar capturas inventadas: solo archivos reales del proyecto.
 - Cortes solo entre bloques; no editar cifras ni ocultar limitaciones.
-- Ensayar una vez cronometrados: si pasa de 14:30, recortar ejemplos, no resultados.
+- Ensayar una vez cronometrados: si pasa de 10:30, recortar ejemplos, no resultados.
 - Todos deben aparecer en cámara al inicio y hablar al menos en un bloque técnico.
 
 ---
@@ -71,7 +73,7 @@ Datos: Sports Reference LLC / Basketball-Reference.com.
 
 ---
 
-## 1. Presentación y problema (0:00–1:30) — Integrante A
+## 1. Presentación y problema — Mauricio
 
 **Cámara encendida. Saludo y nombres.**
 
@@ -90,7 +92,7 @@ Datos: Sports Reference LLC / Basketball-Reference.com.
 
 ---
 
-## 2. Fuente y ética (1:30–2:30) — Integrante A
+## 2. Fuente y ética — Mauricio
 
 > «La fuente es Basketball-Reference, una página por temporada. Es un portal real, público y
 > con datos oficiales de la liga.»
@@ -105,7 +107,7 @@ Datos: Sports Reference LLC / Basketball-Reference.com.
 
 ---
 
-## 3. Fase I: scraping (2:30–4:30) — Integrante A
+## 3. Fase I: scraping — Mauricio
 
 > «El requisito era un scraping automatizado con bucles. Recorremos 27 temporadas con un
 > `for year in range(2000, 2027)`. Para cada año construimos la URL, descargamos la página y
@@ -125,7 +127,7 @@ caché. Eso es consolidación limpia, no una lista de URLs.»
 
 ---
 
-## 4. Fase II: limpieza (4:30–6:00) — Integrante A
+## 4. Fase II: limpieza — Mauricio
 
 > «Unimos los 54 fragmentos con `pd.concat`. Luego verificamos duplicados: cero exactos y cero
 > por la clave `(season, Team)`.»
@@ -148,7 +150,7 @@ con la mediana aprendida solo del train, dentro del pipeline.»
 
 ---
 
-## 5. Fase III: EDA (6:00–8:00) — Integrante B
+## 5. Fase III: EDA — Mauricio
 
 > «Mi parte es la exploración. Generamos 11 figuras y 14 tablas.»
 
@@ -173,7 +175,7 @@ temporada. Es transductiva y lo declaramos como limitación.»
 
 ---
 
-## 6. Fase IV: modelado (8:00–11:30) — Integrante B
+## 6. Fase IV: modelado — Santiago
 
 > «El requisito era scikit-learn, train/test, modelo base, `GridSearchCV` y validación cruzada
 > de al menos 5 folds, comparando antes y después.»
@@ -204,7 +206,7 @@ dentro del pipeline y ningún modelo, hiperparámetro ni umbral elegido con el t
 
 ---
 
-## 7. Resultados y límites (11:30–13:00) — Integrante B
+## 7. Resultados y límites — Santiago
 
 > «En validación cruzada, la logística optimizada logra F1 0,912 y ROC-AUC 0,970. El Random
 > Forest queda en F1 0,870; la logística gana.»
@@ -232,7 +234,7 @@ El modelo base ya era fuerte y la grilla tenía poco margen.»
 
 ---
 
-## 8. Cierre y preguntas (13:00–14:00) — Ambos
+## 8. Cierre y preguntas — Ambos
 
 > «En conclusión: sí se puede predecir la clasificación con alta discriminación usando 16
 > estadísticas relativas; la defensa eficiente es la señal más importante; y la optimización de
@@ -266,7 +268,7 @@ El modelo base ya era fuerte y la grilla tenía poco margen.»
 
 - [ ] Reparto A/B acordado antes de grabar y respetado en los cortes.
 - [ ] Cámara encendida al inicio y presentación de ambos.
-- [ ] Duración total ≤ 15 minutos (objetivo 13–14).
+- [ ] Duración total ≤ 15 minutos (objetivo 10:00).
 - [ ] Audio claro y pantalla legible (zoom a las tablas).
 - [ ] Se muestran archivos reales, no capturas inventadas.
 - [ ] Se mencionan las limitaciones sin ocultarlas.

@@ -3,7 +3,7 @@
 Uso:
     & .\\.venv\\Scripts\\python.exe tools\\build_slides.py
 
-Salida: docs/PRESENTACION_VIDEO.pdf
+Salida: docs/PRESENTACION_VIDEO.pdf (13 páginas: 11 narradas + 2 anexos).
 Requiere Google Chrome o Microsoft Edge (impresión headless) y pypdf.
 No re-ejecuta el pipeline ni modifica cifras: solo maqueta figuras y métricas ya
 registradas en outputs/ y outputs_corrida2_16vars_fase4/.
@@ -22,7 +22,7 @@ from pypdf import PdfReader, PdfWriter
 ROOT = Path(__file__).resolve().parents[1]
 OUT_PATH = ROOT / "docs" / "PRESENTACION_VIDEO.pdf"
 REPO = "https://github.com/ctlucifer1504-bit/proyecto_ciencia_de_datos"
-TOTAL = 18
+TOTAL = 13
 
 CHROME_CANDIDATES = [
     Path(r"C:\Program Files\Google\Chrome\Application\chrome.exe"),
@@ -95,7 +95,7 @@ h2 {
   color: #8a9aa6;
   letter-spacing: 0.3pt;
 }
-h3 { font-size: 13pt; color: #0b3d5c; margin: 0 0 7pt; }
+h3 { font-size: 12.5pt; color: #0b3d5c; margin: 0 0 6pt; }
 p { margin: 0 0 7pt; font-size: 11.5pt; line-height: 1.35; }
 small { font-size: 9pt; }
 strong { color: #0b3d5c; }
@@ -110,7 +110,7 @@ strong { color: #0b3d5c; }
   border-left: 4pt solid #0b3d5c;
   padding: 11pt 14pt;
 }
-.stat .n { font-size: 32pt; font-weight: 700; color: #0b3d5c; line-height: 0.95; }
+.stat .n { font-size: 30pt; font-weight: 700; color: #0b3d5c; line-height: 0.95; }
 .stat .l {
   font-size: 8.2pt;
   text-transform: uppercase;
@@ -150,8 +150,7 @@ strong { color: #0b3d5c; }
   padding-top: 4pt;
 }
 .fig.wide .imgh { height: 3.05in; }
-.fig.short .imgh { height: 2.7in; }
-.fig.med .imgh { height: 3.05in; }
+.fig.med .imgh { height: 3.0in; }
 
 .flow { display: flex; align-items: stretch; justify-content: center; gap: 10pt; }
 .node {
@@ -219,12 +218,7 @@ tr.total td { background: #f3f8fb; font-weight: 700; }
 .mono .ok { color: #0f665e; font-weight: 700; }
 
 /* Portada */
-.title-slide {
-  height: 100%;
-  display: flex;
-  gap: 0.45in;
-  align-items: stretch;
-}
+.title-slide { height: 100%; display: flex; gap: 0.45in; align-items: stretch; }
 .ts-left { flex: 1.55; display: flex; flex-direction: column; }
 .ts-right {
   flex: 0.75;
@@ -259,15 +253,6 @@ tr.total td { background: #f3f8fb; font-weight: 700; }
   color: #5c7280;
   margin-top: 4pt;
 }
-.ts-foot {
-  margin-top: auto;
-  font-size: 8.2pt;
-  color: #6b7c8a;
-  border-top: 0.6pt solid #d7e2ea;
-  padding-top: 8pt;
-  line-height: 1.45;
-}
-.ts-foot b { color: #0b3d5c; font-weight: 600; }
 .ts-quote {
   margin-top: 0.26in;
   border-left: 3pt solid #0f766e;
@@ -289,6 +274,15 @@ tr.total td { background: #f3f8fb; font-weight: 700; }
   font-weight: 600;
 }
 .phases i { color: #9db4c5; font-style: normal; font-size: 10pt; }
+.ts-foot {
+  margin-top: auto;
+  font-size: 8.2pt;
+  color: #6b7c8a;
+  border-top: 0.6pt solid #d7e2ea;
+  padding-top: 8pt;
+  line-height: 1.45;
+}
+.ts-foot b { color: #0b3d5c; font-weight: 600; }
 
 /* Comparaciones */
 .cmp { display: flex; flex-direction: column; gap: 10pt; }
@@ -335,18 +329,26 @@ tr.total td { background: #f3f8fb; font-weight: 700; }
   margin-right: 9pt;
   flex: none;
 }
-.concl { display: flex; flex-direction: column; gap: 11pt; }
+.concl { display: flex; flex-direction: column; gap: 8pt; }
 .concl-row {
   display: flex;
   align-items: flex-start;
   background: #f7fafc;
   border: 0.8pt solid #d7e2ea;
-  padding: 12pt 14pt;
+  padding: 9pt 12pt;
 }
-.concl-row h3 { margin: 0 0 3pt; font-size: 13pt; }
-.concl-row p { margin: 0; font-size: 10.5pt; color: #466072; }
-.mini { margin-top: 0.2in; font-size: 9.6pt; color: #33556b; line-height: 1.9; }
-.mini b { color: #0f766e; margin-right: 6pt; }
+.concl-row h3 { margin: 0 0 2pt; font-size: 12pt; }
+.concl-row p { margin: 0; font-size: 9.8pt; color: #466072; }
+.close-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 0.8pt solid #d7e2ea;
+  margin-top: 0.16in;
+  padding-top: 9pt;
+}
+.close-strip .url { font-size: 10pt; color: #0b3d5c; font-weight: 600; }
+.close-strip .bye { font-size: 15pt; font-weight: 700; color: #0b3d5c; }
 """
 
 
@@ -425,7 +427,7 @@ def build_html() -> str:
 
     # 3. Fuente y ética
     slides.append(slide(3, "Fuente y ética", "Un dato público, recolectado con respeto", """
-<div class="g2" style="height:4.55in">
+<div class="g2">
   <div class="stack">
     <div class="stat"><div class="l">Fuente</div><div class="n" style="font-size:22pt">Basketball-Reference</div><div class="s">Una página por temporada: <strong>/leagues/NBA_AAAA.html</strong></div></div>
     <div class="callout blue" style="font-size:10pt">
@@ -449,64 +451,42 @@ def build_html() -> str:
 </div>
 """))
 
-    # 4. Scraping
-    slides.append(slide(4, "Fase I · Web scraping", "27 temporadas, 54 tablas, 0 fallos", """
-<div class="g4" style="margin-bottom:0.2in">
-  <div class="stat"><div class="n">27</div><div class="l">páginas</div><div class="s">Una por temporada</div></div>
-  <div class="stat"><div class="n">54</div><div class="l">tablas</div><div class="s">Advanced + Per Game</div></div>
-  <div class="stat"><div class="n">805</div><div class="l">filas</div><div class="s">Equipo-temporada</div></div>
-  <div class="stat ok"><div class="n">0</div><div class="l">fallos</div><div class="s">27 de 27 con estado «ok»</div></div>
-</div>
-<div class="g2">
-  <div>
-    <h3>Qué valida el bucle</h3>
-    <div class="chips">
-      <span class="chip">Título de la página = temporada</span>
-      <span class="chip">29 equipos hasta 2004</span>
-      <span class="chip">30 equipos desde 2005</span>
-      <span class="chip">Tablas dentro de comentarios HTML</span>
-      <span class="chip">Log por cada descarga</span>
-      <span class="chip">Caché reanudable</span>
-    </div>
-    <p style="margin-top:0.16in;font-size:10pt;color:#5c7280">El bucle no solo descarga: valida, registra y permite reanudar. Es consolidación limpia, no una lista de URLs.</p>
-  </div>
-  <div>
-    <table>
-      <thead><tr><th>Temporada</th><th class="num">Advanced</th><th class="num">Per Game</th><th>Estado</th></tr></thead>
-      <tbody>
-        <tr><td>2000</td><td class="num">29</td><td class="num">29</td><td>ok</td></tr>
-        <tr><td>2001</td><td class="num">29</td><td class="num">29</td><td>ok</td></tr>
-        <tr><td>…</td><td class="num">…</td><td class="num">…</td><td>…</td></tr>
-        <tr><td>2026</td><td class="num">30</td><td class="num">30</td><td>ok</td></tr>
-      </tbody>
-    </table>
-    <p style="font-size:8.6pt;color:#5c7280;margin-top:6pt">Fuente: outputs/logs/scrape_log.csv · 27 filas, todas «ok».</p>
-  </div>
-</div>
-"""))
-
-    # 5. Limpieza
-    slides.append(slide(5, "Fase II · Limpieza", "De 54 tablas a 805 × 52", """
-<div class="g4" style="margin-bottom:0.2in">
-  <div class="stat ok"><div class="n">0</div><div class="l">duplicados</div><div class="s">Ni exactos ni por (season, Team)</div></div>
-  <div class="stat ok"><div class="n">0</div><div class="l">infinitos</div><div class="s">Conversión numérica auditada</div></div>
-  <div class="stat"><div class="n">8</div><div class="l">nulos</div><div class="s">Solo en asistencia (4 + 4)</div></div>
-  <div class="stat warn"><div class="n">53</div><div class="l">casos límite</div><div class="s">Clasificaron con récord perdedor o dif. negativo</div></div>
-</div>
+    # 4. Fases I y II
+    slides.append(slide(4, "Fases I y II · Datos", "De 27 páginas a 805 × 52", """
 <div class="flow" style="margin-bottom:0.18in">
-  <div class="node">pd.concat<small>54 fragmentos</small></div>
+  <div class="node">27 páginas<small>una por temporada</small></div>
   <div class="arrow">→</div>
-  <div class="node">Tipos numéricos<small>conteo de fallos = 0</small></div>
-  <div class="arrow">→</div>
-  <div class="node">Clave única<small>(season, Team)</small></div>
+  <div class="node">54 tablas<small>Advanced + Per Game</small></div>
   <div class="arrow">→</div>
   <div class="node alt">805 × 52<small>dataset limpio</small></div>
 </div>
-<div class="callout blue"><strong>No imputamos en Fase II.</strong> Si hubiera nulos en predictores, se imputarían con la mediana aprendida <strong>solo del train</strong>, dentro del pipeline. Asistencia queda fuera: tiene nulos y el éxito atrae público.</div>
+<div class="g2">
+  <div class="stack">
+    <h3>Fase I · scraping</h3>
+    <div class="chips">
+      <span class="chip">4 s entre peticiones</span>
+      <span class="chip amber">403/429 → detener</span>
+      <span class="chip">Título y 29/30 equipos</span>
+      <span class="chip green">27/27 descargas «ok»</span>
+      <span class="chip">Tablas en comentarios HTML</span>
+    </div>
+    <p style="font-size:10pt;color:#5c7280">El bucle valida, registra y permite reanudar con caché: no es una lista de URLs.</p>
+  </div>
+  <div class="stack">
+    <h3>Fase II · limpieza</h3>
+    <div class="g2" style="gap:0.1in">
+      <div class="stat ok" style="padding:9pt 12pt"><div class="n">0</div><div class="l">duplicados</div></div>
+      <div class="stat ok" style="padding:9pt 12pt"><div class="n">0</div><div class="l">infinitos</div></div>
+      <div class="stat" style="padding:9pt 12pt"><div class="n">8</div><div class="l">nulos</div><div class="s">Solo asistencia (4 + 4)</div></div>
+      <div class="stat warn" style="padding:9pt 12pt"><div class="n">53</div><div class="l">casos límite</div><div class="s">Récord perdedor o dif. negativo</div></div>
+    </div>
+  </div>
+</div>
+<div class="callout blue" style="margin-top:0.16in"><strong>No imputamos en Fase II:</strong> si hubiera nulos en predictores, la mediana se aprende <strong>solo del train</strong>, dentro del pipeline. Asistencia queda fuera por nulos y por causalidad inversa.</div>
 """))
 
-    # 6. EDA balance y correlaciones
-    slides.append(slide(6, "Fase III · EDA", "El rival a vencer es el 53,7 %", f"""
+    # 5. Fase III
+    slides.append(slide(5, "Fase III · EDA", "El rival a vencer es el 53,7 %", f"""
 <div class="g2">
   {fig("outputs_corrida2_16vars/figures/01_balance_clases_16vars.png", "Balance del objetivo: 432 clasificados (53,7 %) y 373 no clasificados (46,3 %).", "med")}
   {fig("outputs_corrida2_16vars/figures/05_correlacion_con_objetivo_16vars.png", "Correlación de cada predictor con playoffs. La defensa domina en signo negativo.", "med")}
@@ -516,24 +496,14 @@ def build_html() -> str:
   <span class="chip">off_eFG% +0,511</span>
   <span class="chip">Age +0,452</span>
   <span class="chip">off_eFG% ↔ 3P% = 0,709</span>
-  <span class="chip amber">Una regla que siempre diga «clasifica» acierta 53,7 %</span>
+  <span class="chip">3PAr 0,167 → 0,415: todo es relativo</span>
+  <span class="chip amber">«Siempre clasifica» acierta 53,7 %</span>
 </div>
 """))
 
-    # 7. Deriva
-    slides.append(slide(7, "Fase III · Deriva de época", "La época cambia el significado de las cifras", f"""
-{fig("outputs_corrida2_16vars/figures/03_deriva_por_epoca_16vars.png", "Evolución del uso del triple y del ritmo de juego por temporada.", "wide")}
-<div class="g3" style="margin-top:0.16in">
-  <div class="stat"><div class="n">0,167 → 0,415</div><div class="l">3PAr</div><div class="s">El triple pasó de 16,7 % a 41,5 % de los tiros</div></div>
-  <div class="stat"><div class="n">93,1 → 99,4</div><div class="l">Pace</div><div class="s">Más posesiones por partido</div></div>
-  <div class="stat ok"><div class="n">Relativas</div><div class="l">decisión de diseño</div><div class="s">Cada predictor se resta del promedio de su temporada</div></div>
-</div>
-<div class="callout" style="margin-top:0.14in">Comparar valores absolutos confundiría <strong>época</strong> con <strong>calidad</strong>. La transformación usa el promedio de la temporada, nunca el objetivo.</div>
-"""))
-
-    # 8. Metodología
-    slides.append(slide(8, "Fase IV · Modelado", "Un pipeline, dos protocolos, cero fuga", """
-<div class="g2" style="height:4.6in">
+    # 6. Metodología
+    slides.append(slide(6, "Fase IV · Modelado", "Un pipeline, dos protocolos, cero fuga", """
+<div class="g2">
   <div class="stack">
     <h3>Pipeline: todo se ajusta dentro del fold</h3>
     <div class="flow" style="flex-direction:column;gap:6pt">
@@ -558,8 +528,8 @@ def build_html() -> str:
 </div>
 """))
 
-    # 9. CV
-    slides.append(slide(9, "Fase IV · Validación cruzada", "En validación cruzada, la grilla sí mejora", """
+    # 7. CV
+    slides.append(slide(7, "Fase IV · Validación cruzada", "En validación cruzada, la grilla sí mejora", """
 <div class="cmp" style="margin-bottom:0.2in">
   <div class="cmp-row">
     <div class="cmp-name">Regresión logística</div>
@@ -578,8 +548,8 @@ def build_html() -> str:
 <div class="callout blue" style="margin-top:0.2in"><strong>La logística gana en ambos protocolos:</strong> mejor F1, mejor ROC-AUC y más estable entre folds. El Random Forest se queda en 0,870.</div>
 """))
 
-    # 10. Test
-    slides.append(slide(10, "Fase IV · Test temporal", "En test, la mejora no se replica", """
+    # 8. Test
+    slides.append(slide(8, "Fase IV · Test temporal", "En test, la mejora no se replica", """
 <div class="g3" style="margin-bottom:0.18in">
   <div class="kpi"><div class="v">0,879</div><div class="l">F1 · base 0,50</div><div class="s">ROC-AUC 0,946 · recall 0,938</div></div>
   <div class="kpi amber"><div class="v">0,866</div><div class="l">F1 · optimizado 0,50</div><div class="s">ROC-AUC 0,942 · cae frente a la base</div></div>
@@ -595,87 +565,54 @@ def build_html() -> str:
 <div class="callout"><strong>No forzamos una mejora que no existe.</strong> El modelo base ya era fuerte y la grilla tenía poco margen: 805 filas y señales claras. Reportarlo es el resultado.</div>
 """))
 
-    # 11. Matriz y ROC
-    slides.append(slide(11, "Fase IV · Errores", "Dónde acierta y dónde falla", f"""
+    # 9. Errores e importancia
+    slides.append(slide(9, "Fase IV · Errores e importancia", "Dónde acierta y qué pesa", f"""
 <div class="g2">
-  {fig("outputs_corrida2_16vars_fase4/figures/modelado_matriz_confusion_temporal_16vars.png", "Matriz de confusión en test temporal, umbral secundario 0,46: TN 75, FP 23, FN 6, TP 106.", "med")}
-  {fig("outputs_corrida2_16vars_fase4/figures/modelado_curva_roc_temporal_16vars.png", "Curva ROC del modelo optimizado en test temporal: AUC 0,942.", "med")}
+  {fig("outputs_corrida2_16vars_fase4/figures/modelado_matriz_confusion_temporal_16vars.png", "Matriz de confusión en test temporal, umbral 0,46: TN 75, FP 23, FN 6, TP 106. ROC-AUC 0,942.", "med")}
+  {fig("outputs_corrida2_16vars_fase4/figures/modelado_importancia_temporal_16vars.png", "Importancia por permutación en validación interna. Se muestran las 12 de 16 variables con mayor caída del F1.", "med")}
 </div>
-<div class="chips" style="margin-top:0.12in">
-  <span class="chip green">Detecta 106 de 112 clasificados</span>
+<div class="chips" style="margin-top:0.14in">
+  <span class="chip green">106 de 112 clasificados</span>
   <span class="chip amber">23 falsos positivos</span>
-  <span class="chip">6 clasificados que se le escapan</span>
+  <span class="chip">6 se escapan</span>
   <span class="chip">Precisión 0,822 · recall 0,946</span>
+  <span class="chip green">def_eFG% 0,113</span>
+  <span class="chip">def_TOV% 0,065</span>
 </div>
 """))
 
-    # 12. Importancia y VIF
-    slides.append(slide(12, "Fase IV · Importancia", "La defensa pesa más que el ataque", f"""
-<div class="g2" style="height:4.25in">
-  {fig("outputs_corrida2_16vars_fase4/figures/modelado_importancia_temporal_16vars.png", "Importancia por permutación en validación interna. Se muestran las 12 de 16 variables con mayor caída del F1.")}
-  <div class="stack">
-    <div class="stat"><div class="n">0,113</div><div class="l">def_eFG%</div><div class="s">Eficiencia de tiro permitida</div></div>
-    <div class="stat"><div class="n">0,065</div><div class="l">def_TOV%</div><div class="s">Forzar pérdidas del rival</div></div>
-    <div class="stat warn"><div class="n">20,9</div><div class="l">VIF de TRB</div><div class="s">Multicolinealidad alta: el coeficiente se infla</div></div>
-    <div class="callout" style="font-size:9.5pt">La importancia es <strong>asociación</strong>, no causalidad: el diseño es observacional.</div>
-  </div>
-</div>
-"""))
-
-    # 13. Limitaciones
-    slides.append(slide(13, "Límites", "Lo que este modelo no puede decir", """
+    # 10. Límites
+    slides.append(slide(10, "Límites", "Lo que este modelo no puede decir", """
 <div class="g2" style="gap:0.18in">
   <div class="stat"><div class="n" style="font-size:19pt">Observacional</div><div class="l">no causal</div><div class="s">La importancia por permutación mide asociación; no prueba que cambiar una estadística cambie la clasificación.</div></div>
   <div class="stat"><div class="n" style="font-size:19pt">210 filas</div><div class="l">test temporal</div><div class="s">Suficiente para comparar, corto para conclusiones finas. El intervalo de confianza no es estrecho.</div></div>
   <div class="stat warn"><div class="n" style="font-size:19pt">TRB · VIF 20,9</div><div class="l">multicolinealidad</div><div class="s">El coeficiente de una variable no se lee de forma aislada; la sensibilidad sin VIF&gt;10 baja a F1 0,893.</div></div>
-  <div class="stat warn"><div class="n" style="font-size:19pt">0,46 vs 0,57</div><div class="l">umbral inestable</div><div class="s">El umbral elegido cambia entre protocolos. Por eso la cifra titular es 0,50 y el resto es análisis secundario.</div></div>
+  <div class="stat warn"><div class="n" style="font-size:19pt">0,46 vs 0,57</div><div class="l">umbral inestable</div><div class="s">El umbral cambia entre protocolos. Por eso la cifra titular es 0,50 y el resto es análisis secundario.</div></div>
 </div>
 <div class="callout blue" style="margin-top:0.2in"><strong>Play-in desde 2021:</strong> «clasificar» ya no significa lo mismo en todas las temporadas. Se documenta, no se corrige con una variable inventada.</div>
 """))
 
-    # 14. Conclusiones
-    slides.append(slide(14, "Conclusiones", "Tres ideas para llevarse", """
+    # 11. Conclusiones y cierre
+    slides.append(slide(11, "Conclusiones", "Tres ideas y cierre", f"""
 <div class="concl">
   <div class="concl-row"><span class="num-badge">1</span><div><h3>Sí se puede predecir con alta discriminación</h3><p>ROC-AUC 0,946 y F1 0,879 con el modelo base y umbral 0,50, usando solo 16 estadísticas relativas.</p></div></div>
   <div class="concl-row"><span class="num-badge">2</span><div><h3>La señal está en la defensa</h3><p>def_eFG% (0,113) y def_TOV% (0,065) pesan más que el ataque en el modelo multivariado.</p></div></div>
   <div class="concl-row"><span class="num-badge">3</span><div><h3>Optimizar no garantiza mejorar fuera de muestra</h3><p>La grilla sube +0,004 en CV y baja −0,013 en test con el umbral 0,50. Es un resultado honesto, no un fracaso que se esconde.</p></div></div>
 </div>
-<div class="bigq" style="margin-top:0.22in">La pregunta no era «¿quién gana?», sino <strong>qué perfil estadístico anticipa la clasificación</strong>. La respuesta es la eficiencia defensiva.</div>
-"""))
-
-    # 15. Cierre
-    slides.append(slide(15, "Cierre", "Repositorio, informe y video", f"""
-<div class="g2" style="height:4.4in">
-  <div class="stack">
-    <h3>Todo el proyecto, público y reproducible</h3>
-    <div class="stat" style="padding:15pt"><div class="l">Repositorio</div><div class="n" style="font-size:12.5pt;line-height:1.4"><a href="{REPO}">https://github.com/ctlucifer1504-bit/<br>proyecto_ciencia_de_datos</a></div></div>
-    <div class="chips">
-      <span class="chip green">Código MIT</span>
-      <span class="chip green">Documentación CC BY 4.0</span>
-      <span class="chip">Datos no redistribuidos</span>
-      <span class="chip">23 pruebas automáticas</span>
-    </div>
-    <p style="font-size:10pt;color:#5c7280">El informe final y esta presentación se generan con scripts del propio repositorio.</p>
-    <div class="callout blue" style="font-size:9.6pt"><strong>Reproducible de punta a punta:</strong> scraping → limpieza → EDA → modelado → PDF, con versiones fijadas y hash del dataset.</div>
+<div class="close-strip">
+  <div>
+    <div class="kicker" style="margin-bottom:4pt">Repositorio · informe · video</div>
+    <div class="url"><a href="{REPO}">https://github.com/ctlucifer1504-bit/proyecto_ciencia_de_datos</a></div>
   </div>
-  <div style="display:flex;flex-direction:column;justify-content:center;border-left:0.8pt solid #d7e2ea;padding-left:0.4in">
-    <div class="kicker" style="margin-bottom:10pt">Gracias</div>
-    <div style="font-size:30pt;font-weight:700;color:#0b3d5c;line-height:1.1">¿Preguntas?</div>
-    <p style="margin-top:0.16in;font-size:11pt;color:#5c7280">Mauricio Villafañe · Santiago de la Hoz<br>Universidad Americana de Barranquilla</p>
-    <div class="mini">
-      <div><b>✓</b>Informe final con anexos</div>
-      <div><b>✓</b>Presentación 16:9</div>
-      <div><b>✓</b>Video de sustentación en YouTube</div>
-    </div>
-  </div>
+  <div class="bye">Gracias · ¿Preguntas?</div>
 </div>
-<div class="ts-foot" style="border-top:0.6pt solid #d7e2ea;padding-top:8pt;font-size:8pt;color:#6b7c8a;margin-top:auto">
-  <strong>Datos:</strong> Sports Reference LLC / Basketball-Reference.com. · Las cifras provienen de outputs_corrida2_16vars_fase4/metrics/.
+<div class="ts-foot" style="border-top:0.6pt solid #d7e2ea;padding-top:7pt;font-size:8pt;color:#6b7c8a;margin-top:0.12in">
+  <strong>Datos:</strong> Sports Reference LLC / Basketball-Reference.com. · Código MIT · Documentación CC BY 4.0.
 </div>
 """))
 
-    # A1. Evidencia de ejecución
-    slides.append(slide(16, "Anexo · Evidencia", "Ejecución verificable", """
+    # 12. Anexo: evidencias
+    slides.append(slide(12, "Anexo · Evidencia", "Ejecución y repositorio", f"""
 <div class="g2">
   <div>
     <table>
@@ -685,11 +622,12 @@ def build_html() -> str:
         <tr><td>Fragmentos</td><td>54 (2 tablas × 27)</td></tr>
         <tr><td>Dataset final</td><td>805 filas × 52 columnas</td></tr>
         <tr><td>Duplicados / infinitos</td><td>0 / 0</td></tr>
-        <tr><td>SHA-256 del dataset</td><td style="font-size:7.8pt">c04704d9…1f9ea3ea9</td></tr>
+        <tr><td>SHA-256</td><td style="font-size:7.6pt">c04704d9…1f9ea3ea9</td></tr>
         <tr><td>Pruebas</td><td>23 ejecutadas · 13 omitidas sin datos</td></tr>
+        <tr><td>Repositorio</td><td>PUBLIC · main · 144 archivos</td></tr>
       </tbody>
     </table>
-    <p style="font-size:8.4pt;color:#5c7280;margin-top:6pt">La suite se omite a sí misma cuando data/processed/ no existe: el repositorio público no incluye el dataset.</p>
+    <p style="font-size:8.4pt;color:#5c7280;margin-top:6pt">El repositorio no incluye HTML, CSV crudos, dataset ni predicciones fila a fila.</p>
   </div>
   <div class="stack">
     <div class="mono">$ python -m unittest discover -s tests
@@ -697,18 +635,16 @@ Ran 23 tests in 0.166s
 <span class="ok">OK</span></div>
     <div class="mono">$ Get-FileHash data\\processed\\nba_teams_clean.csv
 c04704d9ecdd511b24bd81b1aef73250082e02bd1f63a501eed900f1f9ea3ea9</div>
-    <div class="callout blue" style="font-size:9.4pt">Ninguna prueba ni cifra se eligió después de ver el test. El hash identifica el dataset usado en la corrida oficial.</div>
+    <div class="callout blue" style="font-size:9.4pt">Clon limpio verificado: 23 pruebas ejecutadas, 13 omitidas por ausencia de datos, sin fallos.</div>
   </div>
 </div>
-<div class="g3" style="margin-top:0.14in">
-  <div class="kpi"><div class="v">11 + 10</div><div class="l">figuras</div><div class="s">EDA + modelado</div></div>
-  <div class="kpi"><div class="v">14 + 18</div><div class="l">tablas CSV</div><div class="s">Fases III y IV</div></div>
-  <div class="kpi"><div class="v">0</div><div class="l">datos publicados</div><div class="s">Solo agregados y figuras</div></div>
+<div class="ts-foot" style="border-top:0.6pt solid #d7e2ea;padding-top:7pt;font-size:8pt;color:#6b7c8a;margin-top:0.12in">
+  <a href="{REPO}">{REPO}</a>
 </div>
 """))
 
-    # A2. Métricas exactas
-    slides.append(slide(17, "Anexo · Evidencia", "Métricas exactas del test temporal", """
+    # 13. Anexo: métricas
+    slides.append(slide(13, "Anexo · Evidencia", "Métricas exactas del test temporal", """
 <table style="font-size:10.2pt">
   <thead><tr><th>Configuración</th><th class="num">Accuracy</th><th class="num">Precisión</th><th class="num">Recall</th><th class="num">F1</th><th class="num">ROC-AUC</th><th class="num">Brier</th></tr></thead>
   <tbody>
@@ -723,42 +659,7 @@ c04704d9ecdd511b24bd81b1aef73250082e02bd1f63a501eed900f1f9ea3ea9</div>
   <div class="kpi"><div class="v">112</div><div class="l">clasificados reales</div><div class="s">98 no clasificados</div></div>
   <div class="kpi"><div class="v">0,46</div><div class="l">umbral secundario</div><div class="s">Elegido en validación interna</div></div>
 </div>
-<p style="font-size:8.6pt;color:#5c7280;margin-top:0.16in">Fuente: outputs_corrida2_16vars_fase4/metrics/modelado_test_temporal_16vars.csv y modelado_resumen_16vars.json.</p>
-<div class="callout blue" style="margin-top:0.1in"><strong>Cómo se lee:</strong> la línea base trivial ya acierta 53,3 % y su F1 es 0,696. El modelo base sube a F1 0,879; la grilla no lo supera en test con el umbral 0,50. Esa comparación es la que reportamos.</div>
-"""))
-
-    # A3. Repositorio
-    slides.append(slide(18, "Anexo · Evidencia", "Repositorio público y sin datos", f"""
-<div class="g2">
-  <div class="stack">
-    <div class="mono">$ gh repo view ctlucifer1504-bit/proyecto_ciencia_de_datos \\
-    --json name,visibility,defaultBranchRef,isEmpty
-
-{{"defaultBranchRef": {{"name": "main"}},
- "isEmpty": false,
- "name": "proyecto_ciencia_de_datos",
- "visibility": "<span class="ok">PUBLIC</span>"}}</div>
-    <div class="chips">
-      <span class="chip green">Rama main</span>
-      <span class="chip green">144 archivos</span>
-      <span class="chip">data/ solo README</span>
-      <span class="chip">PDF fuera del repo</span>
-      <span class="chip">Sin predicciones fila a fila</span>
-    </div>
-  </div>
-  <div class="stack">
-    <h3>Qué se publica y qué no</h3>
-    <div class="stat ok"><div class="l">Se publica</div><div class="s">Código, documentación, figuras y métricas agregadas. Licencias MIT y CC BY 4.0.</div></div>
-    <div class="stat warn"><div class="l">No se publica</div><div class="s">HTML, CSV crudos, dataset procesado ni predicciones por equipo-temporada. Los datos son de Sports Reference.</div></div>
-    <div class="callout blue" style="font-size:9.4pt">Clon limpio verificado: 23 pruebas ejecutadas, 13 omitidas por ausencia de datos, sin fallos.</div>
-  </div>
-</div>
-<div class="chips" style="margin-top:0.1in">
-  <span class="chip green">Enlace abre sin sesión</span>
-  <span class="chip green">Atribución visible</span>
-  <span class="chip green">Licencias incluidas</span>
-</div>
-<div class="ts-foot" style="border-top:0.6pt solid #d7e2ea;padding-top:8pt;font-size:8pt;color:#6b7c8a;margin-top:0.14in"><a href="{REPO}">{REPO}</a></div>
+<div class="callout blue" style="margin-top:0.18in"><strong>Cómo se lee:</strong> la línea base trivial ya acierta 53,3 % y su F1 es 0,696. El modelo base sube a F1 0,879; la grilla no lo supera en test con 0,50.</div>
 """))
 
     body = "\n".join(slides)
@@ -833,21 +734,16 @@ def main() -> int:
         "Portada",
         "El problema",
         "Fuente y ética",
-        "Fase I — Scraping",
-        "Fase II — Limpieza",
-        "Fase III — Balance y correlaciones",
-        "Fase III — Deriva de época",
+        "Fases I y II — Datos",
+        "Fase III — EDA",
         "Fase IV — Metodología",
         "Fase IV — Validación cruzada",
         "Fase IV — Test temporal",
-        "Fase IV — Matriz y ROC",
-        "Fase IV — Importancia y VIF",
+        "Fase IV — Errores e importancia",
         "Límites",
-        "Conclusiones",
-        "Cierre",
-        "Anexo — Evidencia de ejecución",
+        "Conclusiones y cierre",
+        "Anexo — Evidencias",
         "Anexo — Métricas exactas",
-        "Anexo — Repositorio",
     ]
     for index, title in enumerate(titles[: len(reader.pages)]):
         writer.add_outline_item(title=title, page_number=index)

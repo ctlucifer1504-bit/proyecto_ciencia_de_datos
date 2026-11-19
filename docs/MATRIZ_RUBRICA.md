@@ -112,7 +112,7 @@ y comentado; PDF impecable.
 | Repositorio público de GitHub | Publicado y verificado: `PUBLIC`, rama `main`, 144 archivos, sin datos | CUMPLE |
 | Enlace funcional en el PDF | GitHub verificado; el de YouTube se añade al terminar el video | **PARCIAL** |
 | PDF institucional | `docs/INFORME_FINAL_BORRADOR.pdf` generado (22 páginas, carta, índice y enlaces); falta el enlace del video y la exportación final | **PARCIAL** |
-| Presentación del video | `docs/PRESENTACION_VIDEO.pdf` (18 páginas 16:9: 15 + 3 anexos) y guion por diapositiva en `docs/GUION_PRESENTACION_VIDEO.md` | **CUMPLE (borrador)** |
+| Presentación del video | `docs/PRESENTACION_VIDEO.pdf` (13 páginas 16:9: 11 + 2 anexos) y guion en PDF `docs/GUION_PRESENTACION_VIDEO.pdf` | **CUMPLE (borrador)** |
 
 **Qué falta y quién debe hacerlo:** grabar y publicar el video, pegar su enlace en el
 informe y regenerar el PDF final. El repositorio ya está publicado y verificado.
@@ -126,7 +126,7 @@ fluidas y demostrativas.
 
 | Requisito | Evidencia | Estado |
 |---|---|---|
-| Guion estructurado | `docs/GUION_VIDEO.md` y `docs/GUION_PRESENTACION_VIDEO.md` con tiempos y reparto | CUMPLE (documento) |
+| Guion estructurado | `docs/GUION_PRESENTACION_VIDEO.pdf` (10:00, Mauricio 1–5, Santiago 6–10, cierre ambos) y `docs/GUION_VIDEO.md` como notas de apoyo | CUMPLE (documento) |
 | Duración ≤ 15 min | Guion planificado en ~13 min | CUMPLE (plan) |
 | Todos los integrantes participan | Reparto definido en el guion | PENDIENTE de ejecución |
 | Cámara encendida al inicio | Indicado en el guion | PENDIENTE de ejecución |

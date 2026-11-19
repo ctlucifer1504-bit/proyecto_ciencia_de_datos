@@ -164,8 +164,8 @@ Ver `docs/CONSIDERACIONES_LEGALES.md` para el texto citado, la incertidumbre y e
 - `docs/MATRIZ_RUBRICA.md` — trazabilidad requisito → evidencia.
 - `docs/INFORME_FINAL.md` — informe final.
 - `docs/GUION_VIDEO.md` — guion de sustentación (≤ 15 min).
-- `docs/PRESENTACION_VIDEO.pdf` — diapositivas horizontales 16:9 (15 + 3 anexos).
-- `docs/GUION_PRESENTACION_VIDEO.md` — qué se dice en cada diapositiva.
+- `docs/PRESENTACION_VIDEO.pdf` — diapositivas horizontales 16:9 (11 + 2 anexos).
+- `docs/GUION_PRESENTACION_VIDEO.pdf` — qué se dice en cada diapositiva (10:00).
 - `docs/DECLARACION_IA.md` — uso de asistencia de IA.
 - `docs/CONTRIBUCIONES.md` — reparto de trabajo.
 - `docs/REPRODUCIBILIDAD.md` — entorno y comandos.
