@@ -101,6 +101,7 @@ small { font-size: 9pt; }
 strong { color: #0b3d5c; }
 
 .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.22in; }
+.g2.duo { grid-template-columns: 0.82fr 1.18fr; }
 .g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.2in; }
 .g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.16in; }
 .stack { display: flex; flex-direction: column; gap: 0.14in; }
@@ -150,7 +151,8 @@ strong { color: #0b3d5c; }
   padding-top: 4pt;
 }
 .fig.wide .imgh { height: 3.05in; }
-.fig.med .imgh { height: 3.0in; }
+.fig.med .imgh { height: 3.85in; }
+.fig.tall .imgh { height: 4.2in; }
 
 .flow { display: flex; align-items: stretch; justify-content: center; gap: 10pt; }
 .node {
@@ -487,9 +489,9 @@ def build_html() -> str:
 
     # 5. Fase III
     slides.append(slide(5, "Fase III · EDA", "El rival a vencer es el 53,7 %", f"""
-<div class="g2">
-  {fig("outputs_corrida2_16vars/figures/01_balance_clases_16vars.png", "Balance del objetivo: 432 clasificados (53,7 %) y 373 no clasificados (46,3 %).", "med")}
-  {fig("outputs_corrida2_16vars/figures/05_correlacion_con_objetivo_16vars.png", "Correlación de cada predictor con playoffs. La defensa domina en signo negativo.", "med")}
+<div class="g2 duo">
+  {fig("outputs_corrida2_16vars/figures/01_balance_clases_16vars.png", "Balance del objetivo: 432 clasificados (53,7 %) y 373 no clasificados (46,3 %).", "tall")}
+  {fig("outputs_corrida2_16vars/figures/05_correlacion_con_objetivo_16vars.png", "Correlación de cada predictor con playoffs. La defensa domina en signo negativo.", "tall")}
 </div>
 <div class="chips" style="margin-top:0.14in">
   <span class="chip green">def_eFG% −0,582</span>
