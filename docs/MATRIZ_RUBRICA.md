@@ -19,8 +19,8 @@
 | 1 | Web scraping dinámico | 20 % | **CUMPLE** | `scraping.py`, `data/raw/fragments/` (54), `outputs/logs/scrape_log.csv`; el HTML crudo (`data/raw/html/`, 27) existe en local pero está excluido del repo público por `.gitignore` |
 | 2 | Limpieza y manipulación | 20 % | **CUMPLE** | `limpieza.py`, `data/processed/nba_teams_clean.csv`, `outputs/metrics/limpieza_resumen.csv` |
 | 3 | Modelado y optimización | 25 % | **CUMPLE con salvedad** | `modelado.py`, `outputs_corrida2_16vars_fase4/`, `docs/FASE_IV_MODELADO_16VARS.md` |
-| 4 | Código y entregables | 15 % | **PARCIAL** | Código modular y documentado; PDF borrador generado; repo GitHub pendiente de publicar |
-| 5 | Sustentación en video | 20 % | **PENDIENTE** | Guion listo en `docs/GUION_VIDEO.md`; video sin grabar |
+| 4 | Código y entregables | 15 % | **PARCIAL** | Código modular, repo público verificado, PDF borrador y presentación 16:9; falta el PDF final con el video |
+| 5 | Sustentación en video | 20 % | **PENDIENTE** | Guion y presentación 16:9 listos en `docs/`; video sin grabar |
 
 ---
 
@@ -109,13 +109,13 @@ y comentado; PDF impecable.
 | Código comentado | Docstrings y comentarios en los cuatro scripts | CUMPLE |
 | Sin errores de sintaxis | `python -m py_compile` sobre los cuatro scripts; pruebas en `tests/` | CUMPLE |
 | Reproducibilidad | `requirements.txt` fijado; `docs/REPRODUCIBILIDAD.md` | CUMPLE |
-| Repositorio público de GitHub | Historial limpio preparado en `main`, sin datos; falta crear el remoto y hacer `push` | **PARCIAL** |
-| Enlace funcional en el PDF | Depende del repositorio y del video | **PENDIENTE** |
+| Repositorio público de GitHub | Publicado y verificado: `PUBLIC`, rama `main`, 144 archivos, sin datos | CUMPLE |
+| Enlace funcional en el PDF | GitHub verificado; el de YouTube se añade al terminar el video | **PARCIAL** |
 | PDF institucional | `docs/INFORME_FINAL_BORRADOR.pdf` generado (22 páginas, carta, índice y enlaces); falta el enlace del video y la exportación final | **PARCIAL** |
+| Presentación del video | `docs/PRESENTACION_VIDEO.pdf` (18 páginas 16:9: 15 + 3 anexos) y guion por diapositiva en `docs/GUION_PRESENTACION_VIDEO.md` | **CUMPLE (borrador)** |
 
-**Qué falta y quién debe hacerlo:** crear el repositorio en GitHub y ejecutar el `push`
-(comandos en la entrega de la Etapa C); después verificar que el enlace abra sin
-autenticación, exportar el PDF y grabar el video.
+**Qué falta y quién debe hacerlo:** grabar y publicar el video, pegar su enlace en el
+informe y regenerar el PDF final. El repositorio ya está publicado y verificado.
 
 ---
 
@@ -126,7 +126,7 @@ fluidas y demostrativas.
 
 | Requisito | Evidencia | Estado |
 |---|---|---|
-| Guion estructurado | `docs/GUION_VIDEO.md` con tiempos y reparto | CUMPLE (documento) |
+| Guion estructurado | `docs/GUION_VIDEO.md` y `docs/GUION_PRESENTACION_VIDEO.md` con tiempos y reparto | CUMPLE (documento) |
 | Duración ≤ 15 min | Guion planificado en ~13 min | CUMPLE (plan) |
 | Todos los integrantes participan | Reparto definido en el guion | PENDIENTE de ejecución |
 | Cámara encendida al inicio | Indicado en el guion | PENDIENTE de ejecución |
@@ -149,14 +149,14 @@ fluidas y demostrativas.
 
 | # | Acción | Responsable | Bloquea |
 |---|---|---|---|
-| 1 | Revisar nombres, institución, asignatura y docente en la portada | Equipo | PDF y video |
-| 2 | Crear repositorio público y subir el código | Equipo | Criterio 4 |
-| 3 | Verificar enlaces públicos sin sesión | Equipo | Criterio 4 |
+| 1 | Revisar nombres, institución, asignatura y docente en la portada | **Hecho** | PDF y video |
+| 2 | Crear repositorio público y subir el código | **Hecho** | Criterio 4 |
+| 3 | Verificar enlaces públicos sin sesión | **Hecho** | Criterio 4 |
 | 4 | Grabar y publicar el video (≤ 15 min) | Ambos integrantes | Criterio 5 |
 | 5 | Añadir el enlace de YouTube y regenerar el PDF | Equipo | Criterio 4 |
-| 6 | Reemplazar el correo de ejemplo del `User-Agent` | Equipo | Publicación |
+| 6 | Reemplazar el correo de ejemplo del `User-Agent` | **Hecho** | Publicación |
 | 7 | Confirmar el tema con el docente | Equipo | Riesgo académico |
-| 8 | Elegir licencia del repositorio | Equipo | Publicación |
+| 8 | Elegir licencia del repositorio | **Hecho** (MIT + CC BY 4.0) | Publicación |
 
 ---
 
@@ -164,8 +164,8 @@ fluidas y demostrativas.
 
 - **Criterios técnicos (1, 2 y 3):** evidencia suficiente y ejecutada. El criterio 3 tiene una
   salvedad honesta sobre la magnitud de la mejora.
-- **Criterio 4:** el código está listo y el PDF borrador existe; faltan el `push` del
-  repositorio, el enlace del video y la exportación final del PDF.
+- **Criterio 4:** el código está listo, el repositorio está publicado y la presentación
+  existe; faltan el enlace del video y la exportación final del PDF.
 - **Criterio 5:** depende enteramente de grabar el video.
 
 **No se declara el proyecto terminado.** El estado global es **técnicamente completo,

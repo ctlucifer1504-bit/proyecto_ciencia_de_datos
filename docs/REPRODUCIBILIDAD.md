@@ -96,6 +96,19 @@ imprimir el HTML a PDF. Salida: `docs/INFORME_FINAL_BORRADOR.pdf`, 22 páginas e
 tamaño carta. Los enlaces externos (GitHub, Basketball-Reference, pandas, scikit-learn)
 quedan clicables y el índice enlaza a cada sección.
 
+## Generación de la presentación
+
+Las diapositivas del video se construyen con `tools/build_slides.py` a partir de las
+figuras y métricas ya registradas. No recalcula nada.
+
+```powershell
+& .\.venv\Scripts\python.exe tools\build_slides.py
+```
+
+Salida: `docs/PRESENTACION_VIDEO.pdf`, 18 páginas horizontales de 16:9 (960 × 540 pt):
+15 para narrar y 3 de anexo con evidencias. El texto que se dice en cada diapositiva
+está en `docs/GUION_PRESENTACION_VIDEO.md`.
+
 ## Advertencia sobre el scraping
 
 El sitio limita a ~20 peticiones por minuto. El script usa pausas de 4 s y caché. Si el
