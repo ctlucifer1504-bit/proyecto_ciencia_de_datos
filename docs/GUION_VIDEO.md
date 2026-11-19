@@ -1,11 +1,11 @@
 # Guion del video de sustentación
 
-> **PLANTILLA — ASIGNAR «A» Y «B» ANTES DE GRABAR.**
-> El equipo se encarga de la grabación; falta decidir qué integrante cubre cada bloque.
-> Duración objetivo: **13–14 minutos** (máximo permitido: 15).
+> **REPARTO A/B: se asigna el mismo día de la grabación.** Cada bloque indica «Integrante A»
+> o «Integrante B»; el equipo decide quién es quién antes de encender la cámara y no cambia
+> a mitad de grabación. Duración objetivo: **13–14 minutos** (máximo permitido: 15).
 > Requisito del curso: cámara encendida al inicio, todos los integrantes se presentan y
-> explican activamente una sección técnica. Publicar en YouTube como público u oculto
-> (no Drive, no archivo local).
+> explican activamente una sección técnica. Publicar en YouTube como **público** o
+> **no listado** (nunca «privado»: el docente no podría verlo).
 
 ---
 
@@ -24,6 +24,50 @@
 
 **Antes de grabar:** probar pantalla, micrófono, foco y que las figuras abran. Tener el
 proyecto abierto en VS Code y una terminal en la raíz.
+
+---
+
+## Plan de rodaje: qué se muestra y dónde está
+
+| Bloque | Acción en pantalla | Archivo o ruta exacta |
+|---|---|---|
+| 1. Problema | Recorrer título, problema y estructura | `README.md` |
+| 2. Fuente y ética | Señalar `HEADERS` (línea 51) y `SLEEP_SECONDS = 4` (línea 42) | `scraping.py` |
+| 3. Scraping | Mostrar las 27 páginas, los 54 fragmentos y el log | `data/raw/html/`, `data/raw/fragments/`, `outputs/logs/scrape_log.csv` |
+| 4. Limpieza | Filtro con paréntesis (líneas 204–213) y resumen de la corrida | `limpieza.py`, `outputs/metrics/limpieza_resumen.csv` |
+| 5. EDA | Balance, correlación con el objetivo y deriva de época | `outputs_corrida2_16vars/figures/01_balance_clases_16vars.png`, `05_correlacion_con_objetivo_16vars.png`, `03_deriva_por_epoca_16vars.png` |
+| 6. Modelado | Pipeline (línea 164), 5 folds y tabla CV antes/después | `modelado.py`, `outputs_corrida2_16vars_fase4/metrics/modelado_cv_base_vs_optimizado_temporal_16vars.csv` |
+| 7. Resultados | Matriz de confusión, ROC, importancia y VIF | `.../figures/modelado_matriz_confusion_temporal_16vars.png`, `modelado_curva_roc_temporal_16vars.png`, `modelado_importancia_temporal_16vars.png`, `.../metrics/modelado_vif_16vars.csv` |
+| 8. Cierre | Navegador con el repositorio y el PDF abierto | `https://github.com/ctlucifer1504-bit/proyecto_ciencia_de_datos` |
+
+**Reglas de grabación**
+
+- 1080p, micrófono probado y cursor lento; hacer zoom cuando se lea una tabla.
+- No mostrar capturas inventadas: solo archivos reales del proyecto.
+- Cortes solo entre bloques; no editar cifras ni ocultar limitaciones.
+- Ensayar una vez cronometrados: si pasa de 14:30, recortar ejemplos, no resultados.
+- Todos deben aparecer en cámara al inicio y hablar al menos en un bloque técnico.
+
+---
+
+## Publicación en YouTube
+
+1. Subir el archivo como **No listado** (o **Público**). **No** usar «Privado».
+2. Título: `¿Qué estadísticas explican que un equipo de la NBA llegue a playoffs? — Sustentación`.
+3. Descripción:
+
+```text
+Proyecto final de Ciencia de Datos con Python.
+Integrantes: Mauricio Villafañe y Santiago de la Hoz.
+Universidad Americana de Barranquilla, Facultad de Ingeniería de Sistemas.
+Docente: Edgar Morillo Vergel. 7.º semestre. Barranquilla, 2026.
+
+Repositorio: https://github.com/ctlucifer1504-bit/proyecto_ciencia_de_datos
+Datos: Sports Reference LLC / Basketball-Reference.com.
+```
+
+4. Abrir el enlace en una ventana de incógnito y comprobar que se reproduce sin sesión.
+5. Copiar la URL y enviarla para regenerar el PDF final y actualizar el README.
 
 ---
 
@@ -172,7 +216,8 @@ dentro del pipeline y ningún modelo, hiperparámetro ni umbral elegido con el t
 > existe.»
 
 > «Lo que sí es sólido: ROC-AUC 0,946, recall 0,938 y precisión 0,827 con el modelo base y
-> umbral 0,50. Detecta casi todos los clasificados, con una de cada cinco alertas falsa.»
+> umbral 0,50. Detecta casi todos los clasificados: de cada seis alertas de «clasifica»,
+> una es falsa.»
 
 > «Las variables más importantes son `def_eFG%` y `def_TOV%`. La eficiencia defensiva y forzar
 > pérdidas pesan más que el ataque en el modelo multivariado.»
@@ -219,12 +264,12 @@ El modelo base ya era fuerte y la grilla tenía poco margen.»
 
 ## Lista de verificación antes de publicar
 
-- [ ] Nombres y roles correctos en el reparto.
+- [ ] Reparto A/B acordado antes de grabar y respetado en los cortes.
 - [ ] Cámara encendida al inicio y presentación de ambos.
-- [ ] Duración total ≤ 15 minutos.
+- [ ] Duración total ≤ 15 minutos (objetivo 13–14).
 - [ ] Audio claro y pantalla legible (zoom a las tablas).
 - [ ] Se muestran archivos reales, no capturas inventadas.
 - [ ] Se mencionan las limitaciones sin ocultarlas.
-- [ ] Video subido a YouTube como público u oculto.
+- [ ] Video subido a YouTube como público o no listado (nunca privado).
 - [ ] Enlace del video pegado en el PDF y en el README.
 - [ ] Enlace del repositorio verificado en una ventana sin sesión.
